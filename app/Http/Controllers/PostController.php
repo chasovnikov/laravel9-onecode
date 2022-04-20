@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    // public function __constructor()
+    // {
+    //     // автоматически зарегистрирует мидлвар
+    //     $this->middleware('token')->only('index', 'store');
+    // }
+
     public function index()
     {
         return 'страница: posts/index';
