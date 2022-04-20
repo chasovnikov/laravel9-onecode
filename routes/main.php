@@ -21,7 +21,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::view('/', 'welcome', ['name' => 'Max'])->name('home');
+// Route::view('/', 'welcome', ['name' => 'Max'])->name('home');
+Route::view('/', 'home.index')->name('home');
 
 Route::redirect('/home', '/', 301)->name('home.redirect');
 
