@@ -18,7 +18,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link {{ active_link('blog') }}" aria-current="page" href="{{ route('blog') }}">
+                    <a class="nav-link {{ active_link('blog*') }}" aria-current="page" href="{{ route('blog') }}">
                         {{ __('Блог') }}
                     </a>
                 </li>

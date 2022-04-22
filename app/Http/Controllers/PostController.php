@@ -14,12 +14,20 @@ class PostController extends Controller
 
     public function index()
     {
-        return 'страница: posts/index';
+        $post = (object) [
+            'id' => 123,
+            'title' => 'Lorem ipsum dolor sit amet.',
+            'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, nam.'
+        ];
+
+        $posts = array_fill(0, 10, $post);
+
+        return view('user.posts.index', compact('posts'));
     }
 
     public function create()
     {
-        return 'страница: posts/create';
+        return view('user.posts.create');
     }
 
     public function store()
@@ -27,19 +35,31 @@ class PostController extends Controller
         return 'страница: posts/store';
     }
 
-    public function show($id)
+    public function show($post)
     {
-        return 'страница: posts/show ' . $id;
+        $post = (object) [
+            'id' => 123,
+            'title' => 'Lorem ipsum dolor sit amet.',
+            'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, nam.'
+        ];
+
+        return view('user.posts.show', compact('post'));
+    }
+
+    public function edit($post)
+    {
+        $post = (object) [
+            'id' => 123,
+            'title' => 'Lorem ipsum dolor sit amet.',
+            'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, nam.'
+        ];
+
+        return view('user.posts.edit', compact('post'));
     }
 
     public function update()
     {
         return 'страница: posts/update';
-    }
-
-    public function edit()
-    {
-        return 'страница: posts/edit';
     }
 
     public function delete()
