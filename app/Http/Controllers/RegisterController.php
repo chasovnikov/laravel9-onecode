@@ -29,6 +29,10 @@ class RegisterController extends Controller
 
         // dd($name);
 
-        return 'register.store';
+        if (true) {
+            return back()->withInput();
+        }
+
+        return redirect()->route('user');
     }
 }

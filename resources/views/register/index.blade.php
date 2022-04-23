@@ -36,10 +36,11 @@
             <x-form-item>
                 <x-label required>{{ __('Пароль ещеё раз') }}</x-label>
                 <x-input type="password" name="password_confirmation" />
+
             </x-form-item>
 
             <x-form-item>
-                <x-checkbox name="remember">
+                <x-checkbox name="agreement">
                     {{ __('Согласен на обрабоку пользовательских данных') }}
                 </x-checkbox>
             </x-form-item>

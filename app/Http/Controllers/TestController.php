@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response as FacadesResponse;
 
 class TestController extends Controller
 {
@@ -15,6 +17,15 @@ class TestController extends Controller
 
     public function __invoke()
     {
-        return 'test1';
+
+        // $response = app()->make('response');
+        // $response = app('response');
+        // $response = response();
+        // $response = FacadesResponse::make('dfdf');
+
+        // return response('test', 200, ['foo' => 'bar']);
+        // return ['foo' => 'vase'];
+
+        return response()->json(['foo' => 'vase'], 200, []);
     }
 }

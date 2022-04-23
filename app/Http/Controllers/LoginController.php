@@ -8,18 +8,18 @@ class LoginController extends Controller
 {
     public function index(Request $request)
     {
-        $ip = $request->ip();
-        $path = $request->path();
-        $url = $request->url();
-        $full = $request->fullUrl();
-        dd($request->is('foo'));
-        dd($request->routeIs('foo'));
+        // $ip = $request->ip();
+        // $path = $request->path();
+        // $url = $request->url();
+        // $full = $request->fullUrl();
+        // dd($request->is('foo'));
+        // dd($request->routeIs('foo'));
 
         return view('login.index');
     }
 
     public function store()
     {
-        return;
+        return redirect()->route('user');
     }
 }
