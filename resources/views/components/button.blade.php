@@ -1,7 +1,7 @@
 @props(['color' => 'primary'])
 
 <button {{ $attributes->class([
-    "btn-btn-{$color}",
+    "btn btn-{$color}",
     ])->merge([
     'type' => 'button',
     ]) }}>

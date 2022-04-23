@@ -3,6 +3,7 @@
 @section('page.title', 'Изменить пост')
 
 @section('main.content')
+
 <x-title>
     {{ __('Изменить пост') }}
 
@@ -13,7 +14,6 @@
     </x-slot>
 </x-title>
 
-<x-post.form action="{{ route('user.posts.update', $post->id) }}" :post="$post" />
-
+<x-post.form action="{{ route('user.posts.update', $post->id) }}" method="put" :post="$post" />
 
 @endsection

@@ -15,7 +15,14 @@
         .container {
             max-width: 720px;
         }
+
+        .required:after {
+            content: '*';
+            color: red;
+        }
+
     </style>
+
 
 </head>
 
