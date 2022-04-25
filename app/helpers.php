@@ -15,3 +15,11 @@ if (!function_exists('active_link')) {
         return Route::is($route) ? $active : '';
     }
 }
+
+if (!function_exists('alert')) {
+    function alert(string $value, string $type = 'success'): void
+    {
+        session(['alert' => __($value)]);
+        session(['type' => __($type)]);
+    }
+}
