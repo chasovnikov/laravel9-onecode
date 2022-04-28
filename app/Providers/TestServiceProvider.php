@@ -14,9 +14,13 @@ class TestServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('test', function () {
+        $this->app->bind('test', function () {
             return new Test(config('example'));
         });
+
+        // $this->app->singleton('test', function () {
+        //     return new Test(config('example'));
+        // });
     }
 
     /**

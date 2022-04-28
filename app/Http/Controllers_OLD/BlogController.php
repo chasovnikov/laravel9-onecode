@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 
 class BlogController extends Controller
 {
@@ -25,7 +24,7 @@ class BlogController extends Controller
         $posts = array_fill(0, 10, $post);
 
         $posts = array_filter($posts, function ($post) use ($search, $category_id) {
-            if ($search && ! str_contains(strtolower($post->title), strtolower($search))) {
+            if ($search && !str_contains(strtolower($post->title), strtolower($search))) {
                 return false;
             }
 
@@ -45,15 +44,12 @@ class BlogController extends Controller
         return view('blog.index', compact('posts', 'categories'));
     }
 
-    public function show(Request $request, $post)
+    public function show($post)
     {
-        // dd($request->route('category'), $request->route('post'), $request->all());
-        // dd($category, $post, $request->all());
-
         $post = (object) [
             'id' => 123,
             'title' => 'Lorem ipsum dolor sit amet.',
-            'content' => 'Lorem ipsum <strong>dolor</strong> sit amet consectetur, adipisicing elit. Soluta, qui?',
+            'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, nam.'
         ];
 
         return view('blog.show', compact('post'));
@@ -61,6 +57,6 @@ class BlogController extends Controller
 
     public function like($post)
     {
-        return 'Поставить лайк';
+        return 'Blog-like';
     }
 }

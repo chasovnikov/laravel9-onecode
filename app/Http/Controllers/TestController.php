@@ -2,30 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Response as FacadesResponse;
+use Illuminate\Support\Facades\Response;
 
 class TestController extends Controller
 {
-    public function __constructor()
+    public function __construct()
     {
-        // автоматически зарегистрирует мидлвар для всех методов
-        // $this->middleware('token');
-        $this->middleware('throttle:10');   // 10 запросов в минуту
+        $this->middleware('throttle:10');
     }
 
-    public function __invoke()
+    public function __invoke(Request $request)
     {
+        // return 'Test;
+        // return response('Test');
 
-        // $response = app()->make('response');
-        // $response = app('response');
-        // $response = response();
-        // $response = FacadesResponse::make('dfdf');
-
-        // return response('test', 200, ['foo' => 'bar']);
-        // return ['foo' => 'vase'];
-
-        return response()->json(['foo' => 'vase'], 200, []);
+        // return ['foo' => 'bar'];
+        return response()->json(['foo' => 'bar']);
     }
 }

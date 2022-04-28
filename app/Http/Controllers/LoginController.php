@@ -8,26 +8,20 @@ class LoginController extends Controller
 {
     public function index(Request $request)
     {
-        // dd(session()->has('test'));
-        // if ($test = session('test')) {
-        //     action($test);
-        // }
-        // $all = session()->all();
+        // dd(session()->all());
         // $foo = session('foo');
-        // dd($all);
+        // dd($foo);
 
         return view('login.index');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        // session()->put('foo', 'bar');
-        // session(['foo' => 'bar']);
-        // session()->forget('foo');
-        // session()->flush();
-        // session(['alert' => __('Добро пожаловать')]);
+        alert(__('Добро пожаловать!'));
 
-        alert(__('Добро пожаловать'), 'danger');
+        // if (true) {
+        // return redirect()->back()->withInput();
+        // }
 
         return redirect()->route('user');
     }

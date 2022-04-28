@@ -37,9 +37,15 @@ Route::middleware('guest')->group(function () {
     Route::post('login', [LoginController::class, 'store'])->name('login.store');
 });
 
-Route::get('blog', [BlogController::class, 'index'])->name('blog');
-Route::get('blog/{post}', [BlogController::class, 'show'])->name('blog.show');
-Route::post('blog/{post}/like', [BlogController::class, 'like'])->name('blog.like');
+Route::controller(BlogController::class)->group(function () {
+    Route::get('blog', 'index')->name('blog');
+    Route::get('blog/{post}', 'show')->name('blog.show');
+    Route::post('blog/{post}/like', 'like')->name('blog.like');
+});
+
+Route::resource('posts/{post}/comments', CommentController::class)->only([
+    'index', 'show',
+]);
 
 // Route::resource('posts', PostController::class)->only(['index', 'show']);
 
