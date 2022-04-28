@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Post\StorePostRequest;
+use Dotenv\Exception\ValidationException;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -30,12 +32,18 @@ class PostController extends Controller
         return view('user.posts.create');
     }
 
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
-        $title = $request->input('title');
-        $content = $request->input('content');
+        // $valideted = $request->validated();
+
+        // $title = $request->input('title');
+        // $content = $request->input('content');
 
         // dd($title, $content);
+
+        if (true) {
+            return back()->withInput()->with('message', __('Недостаточно средств'));
+        }
 
         return redirect()->route('user.posts.show', 123);
     }
